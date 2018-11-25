@@ -1,4 +1,4 @@
-
+global feedback_waiter,event
 def feedback():
     global feedback_waiter,event
     print("Your events that you are participed is:",event)
