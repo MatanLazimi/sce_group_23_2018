@@ -22,16 +22,16 @@ def ReadDict(username,password):
             flag=True
         else:
             print("Wrong Password, try again")
+            return False
     else:
         print("Wrong Username, Plaese Check your Username Or Password")
-
+        return False
 
     return flag
 
-
+###################End_Login#######################
 if (ReadDict(Username, Password)==True):
     print("ok")
-###################End_Login#######################
     global a
     global event,feedback_waiter
     a=list()
