@@ -40,6 +40,20 @@ if (ReadDict(Username, Password)==True):
     now=datetime.now()
     print(calendar.calendar(now.year))
     ###################functions##############
+    def ChangeWorkSchedule():
+        print('Enter the next details to send the application to change the shift:')
+        firstName = str(input('Enter your first name: '))
+        lastName = str(input('Enter your last name: '))
+        id = int(input('Enter your ID: '))
+        Appli = str(input('Enter your application and all the details on the shift: '))
+        ChangeWorkApplication = {'FirstName': firstName, 'LastName': lastName, 'ID': id, 'Appl': Appli}
+        return ChangeWorkApplication
+
+    #RequestChangeShift = ChangeWorkSchedule()
+    '''print(RequestChangeShift['FirstName'])
+    print(RequestChangeShift['LastName'])
+    print(RequestChangeShift['ID'])
+    print(RequestChangeShift['Appl'])'''
     global FirstName
     global LastName
     global ID
@@ -141,6 +155,7 @@ if (ReadDict(Username, Password)==True):
         print('To see your pressed days that you want to work (2)')
         print('To see your personal information or update press (3)')#in this fuction need to another button to update the personal information
         print('To send feedback on event press (4)')
+        print('To send application for change the work schedule press (5)')
         print('To exit press (8)')
         """print('to see the report shifts of the last month press 5')
         print('to send application for change the work schedule press 6')
@@ -161,4 +176,8 @@ if (ReadDict(Username, Password)==True):
         if(choice==4):
             feedback()
             print("Sucess to put feedback",feedback_waiter)
+            x = input("Press any key to return the menu: ")
+        if(choice==5):
+            RequestChangeShift = ChangeWorkSchedule()
+            print(RequestChangeShift['Appl'])
             x = input("Press any key to return the menu: ")
