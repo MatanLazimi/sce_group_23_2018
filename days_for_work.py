@@ -1,7 +1,6 @@
-global a
 def Insert_days_to_work():
+    global a
     if(a==list()):
-        global a
         print('Welcome to page of choosing days for working')
         print("Press days that you want to work: ")
         a=list(input("Every day in week is a number 1-7, space between values: "))
