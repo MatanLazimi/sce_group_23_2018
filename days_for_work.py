@@ -6,6 +6,7 @@ def Insert_days_to_work():
         print("Press days that you want to work: ")
         a=list(input("Every day in week is a number 1-7, space between values: "))
         i=1
+
         while(i<len(a)):
             a.pop(i)
             i=i+1
