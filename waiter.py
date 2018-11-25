@@ -9,6 +9,69 @@ event={"22/12/2018":"Festival Can"}
 now=datetime.now()
 print(calendar.calendar(now.year))
 ###################functions##############
+global FirstName
+global LastName
+global ID
+global EmailAddress
+global PhoneNumber
+#personal information
+FirstName=None
+LastName=None
+ID=None
+EmailAddress=None
+PhoneNumber=None
+
+def PersonalInformation():
+    global FirstName
+    global LastName
+    global ID
+    global EmailAddress
+    global PhoneNumber
+    if FirstName == None:#insert personal information for the first time
+        FirstName=str(input('Enter your first name: '))
+        LastName=str(input('Enter your last name: '))
+        ID=int(input('Enter your ID: '))
+        PhoneNumber=str(input('Enter your phone number: '))
+        EmailAddress=str(input('Enter your email address: '))
+    else:#see all your personal information
+        print('Your first name is: ',FirstName)
+        print('Your last name is: ',LastName)
+        print('Your ID is: ',ID)
+        print('Your phone number is: ',PhoneNumber)
+        print('Your email address is: ',EmailAddress)
+        print('')
+        UpdatePI=int(input('if you want to change your personal information press 1 else press 0: '))
+        if UpdatePI==1:
+            ChangePI()
+    print('')
+    print('The personal information you registered is: ')
+    print('Your first name is: ', FirstName)
+    print('Your last name is: ', LastName)
+    print('Your ID is: ', ID)
+    print('Your phone number is: ', PhoneNumber)
+    print('Your email address is: ', EmailAddress)
+
+def ChangePI():#update the personal information
+    global FirstName
+    global LastName
+    global EmailAddress
+    global PhoneNumber
+    UpdatePI = int(input('do you want to change the first name:(yes-1,no-0) '))
+    if UpdatePI == 1:
+        FirstName=str(input('Update your first name: '))
+    UpdatePI = int(input('do you want to change the last name:(yes-1,no-0) '))
+    if UpdatePI == 1:
+        LastName = str(input('Update your last name: '))
+    UpdatePI = int(input('do you want to change the phone number:(yes-1,no-0) '))
+    if UpdatePI == 1:
+        PhoneNumber = str(input('Update your phone number: '))
+    UpdatePI = int(input('do you want to change the email address:(yes-1,no-0) '))
+    if UpdatePI == 1:
+        EmailAddress = str(input('Update your email address: '))
+
+"""PersonalInformation() #check the fuction
+print('')
+PersonalInformation()"""
 def Insert_days_to_work():
     global a
     if(a==list()):
@@ -45,12 +108,12 @@ while(choice!=8):
     print("Menu")
     print('To choose your days you want to work press (1)')#
     print('To see your pressed days that you want to work (2)')
-    print('To see your work schedule press (3)')
-    print('To see your personal information press (4)')#in this fuction need to another button to update the personal information
-    print('To send feedback on event press (5)')
+    print('To see your personal information or update press (3)')#in this fuction need to another button to update the personal information
+    print('To send feedback on event press (4)')
     print('To exit press (8)')
     """print('to see the report shifts of the last month press 5')
     print('to send application for change the work schedule press 6')
+    print('To see your work schedule press (3)')
     print('to send general application to manager or responsible shift 7')"""
     choice=int(input("Insert your choice here: "))
 
@@ -61,7 +124,10 @@ while(choice!=8):
         for i in a:
             print(calendar.day_name[(int(i)+5)%7])
         x=input("Press any key to return the menu: ")
-    if(choice==5):
+    if(choice==3):
+        PersonalInformation()
+        x = input("Press any key to return the menu: ")
+    if(choice==4):
         feedback()
         print("Sucess to put feedback",feedback_waiter)
         x = input("Press any key to return the menu: ")
