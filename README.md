@@ -6,4 +6,8 @@ Course for Software Engineering
  		thanks and goodlouck,
     	Group 23
     	Matan, Elhanan, Tzahi
+	
+	For get in to the system:
+	User name: Matan_La
+	Password:1234
 		
