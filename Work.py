@@ -1,3 +1,5 @@
+######################DRAFT######################
+"""
 import calendar
 from datetime import datetime
 
@@ -7,6 +9,10 @@ feedback_waiter={}
 event={"22/12/2018":"Festival Can"}
 
 
+
+PersonalInformation() #check the fuction
+print('')
+PersonalInformation()
 def Insert_days_to_work():
     if(a==list()):
         global a
@@ -21,11 +27,9 @@ def Insert_days_to_work():
     else:
         print("There is alredy chosen days,"
                     ,"please contact your administrator to change days.")
-"""
 Insert_days_to_work()
 print(a)
-Insert_days_to_work()
-"""
+
 
 def feedback():
     global feedback_waiter,event
@@ -38,11 +42,11 @@ def feedback():
             feedback_waiter[date1]=input("Insert your feedback here: ")
     else:
         print("Wrong date input, return to main page")
-"""
+
 feedback()
 feedback()
 print(feedback_waiter)
-"""
+
 
 now=datetime.now()
 print(calendar.calendar(now.year))
@@ -53,3 +57,4 @@ print('to see your work schedule press 2')
 print('to see your personal information press 3')#in this fuction need to another button to update the personal information
 print('to aaaa')
 
+"""
