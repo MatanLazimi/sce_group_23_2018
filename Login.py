@@ -13,7 +13,7 @@ def ReadDict(username,password):
             dictionary[s[0]] = int(s[1])
 
     if username in dictionary:
-        if dictionary[username[1]] == password:
+        if int(dictionary[username]) == int(password):
             print("Login Seccess")
             flag=True
         else:
@@ -25,7 +25,5 @@ def ReadDict(username,password):
     return flag
 
 
-ReadDict(Username, Password)
-
-
-import Work
+if (ReadDict(Username, Password)==True):
+    print("ok")
