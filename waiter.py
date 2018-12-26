@@ -15,7 +15,6 @@ def ReadDict(username,password):
             s = line.strip().split(", ")
             dictionary[s[0]] = int(s[1])
 
-
     if username in dictionary:
         if int(dictionary[username]) == int(password):
             print("Login Seccess")
@@ -33,10 +32,11 @@ def ReadDict(username,password):
 if (ReadDict(Username, Password)==True):
     print("ok")
     global a
-    global event,feedback_waiter
+    global event,feedback_waiter,chosen
+    chosen=[]
     a=list()
     feedback_waiter={}
-    event={"22/12/2018":"Festival Can"}
+    event={"22/12/2018":"Festival Can","23/4/19":"Ceramony-White House","15/7/19":"Birthey to Yossi-Natannya"}
     now=datetime.now()
     print(calendar.calendar(now.year))
     ###################functions##############
@@ -128,6 +128,18 @@ if (ReadDict(Username, Password)==True):
                 feedback_waiter[date1]=input("Insert your feedback here: ")
         else:
             print("Wrong date input, return to main page")
+
+    def choose_event():
+        chosen_event_date=1
+        while(chosen_event_date!='0'):
+            print()
+            chosen_event_date=input("Insert Date of the event that you want to work (space between values):\nInsert zero for finish.\n")
+            if(chosen_event_date in event):
+                chosen.append(chosen_event_date)
+                print("The event that you are choose saved in database, goodluck.")
+            elif(chosen_event_date!='0'):
+                print("There is a problem with your insert.")
+
     """
     feedback()
     feedback()
@@ -141,6 +153,7 @@ if (ReadDict(Username, Password)==True):
         print('To see your pressed days that you want to work (2)')
         print('To see your personal information or update press (3)')#in this fuction need to another button to update the personal information
         print('To send feedback on event press (4)')
+        print('To choose from list the event that waiter want to work (5)')
         print('To exit press (8)')
         """print('to see the report shifts of the last month press 5')
         print('to send application for change the work schedule press 6')
@@ -161,4 +174,9 @@ if (ReadDict(Username, Password)==True):
         if(choice==4):
             feedback()
             print("Sucess to put feedback",feedback_waiter)
+            x = input("Press any key to return the menu: ")
+        if(choice==5):
+            print("The list of events is:",event)
+            choose_event()
+            print("Your date of events that you chose to work them is: ",chosen)
             x = input("Press any key to return the menu: ")
