@@ -78,6 +78,9 @@ if (ReadDict(Username, Password)==True):
             ID=int(input('Enter your ID: '))
             PhoneNumber=str(input('Enter your phone number: '))
             EmailAddress=str(input('Enter your email address: '))
+            dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
+                       'EmailAddress': EmailAddress}
+            # צריך לשים את הפרטים האיישים במסד נתונים
         else:#see all your personal information
             print('Your first name is: ',FirstName)
             print('Your last name is: ',LastName)
@@ -88,9 +91,7 @@ if (ReadDict(Username, Password)==True):
             UpdatePI=int(input('if you want to change your personal information press 1 else press 0: '))
             if UpdatePI==1:
                 dict_IP = ChangePI()
-            else:
-                dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
-                           'EmailAddress': EmailAddress}
+                # צריך לעדכן את מסד הנתונים של פרטיים האישיים של העובדים
         print('')
         print('The personal information you registered is: ')
         print('Your first name is: ', FirstName)
