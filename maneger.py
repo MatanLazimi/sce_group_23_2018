@@ -34,7 +34,7 @@ if (ReadDict(Username, Password)==True):
     print("ok")
     global a
     global event,feedback_waiter,waiters
-    waiters=[]m
+    waiters=[]
     a=list()
     feedback_waiter={}
     event={"22/12/2018":"Festival Can"}
