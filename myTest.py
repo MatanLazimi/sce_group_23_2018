@@ -1,10 +1,9 @@
+import manager
 import unittest
 
-
-class MyTestCase(unittest.TestCase):
-    def test_something(self):
-        self.assertEqual(True, False)
-
+class waiter(unittest.TestCase):
+    def test_ReadDict(self):
+        self.assertEqual(manager('Matan_La',1234),True)
 
 if __name__ == '__main__':
-    unittest.main()
+   unittest.main()
