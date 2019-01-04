@@ -87,7 +87,10 @@ if (ReadDict(Username, Password)==True):
             print('')
             UpdatePI=int(input('if you want to change your personal information press 1 else press 0: '))
             if UpdatePI==1:
-                ChangePI()
+                dict_IP = ChangePI()
+            else:
+                dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
+                           'EmailAddress': EmailAddress}
         print('')
         print('The personal information you registered is: ')
         print('Your first name is: ', FirstName)
@@ -113,6 +116,7 @@ if (ReadDict(Username, Password)==True):
         UpdatePI = int(input('do you want to change the email address:(yes-1,no-0) '))
         if UpdatePI == 1:
             EmailAddress = str(input('Update your email address: '))
+        return {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'PhoneNumber':PhoneNumber, 'EmailAddress':EmailAddress}
 
     """PersonalInformation() #check the fuction
     print('')
