@@ -73,11 +73,14 @@ if (ReadDict(Username, Password)==True):
         global EmailAddress
         global PhoneNumber
         if FirstName == None:#insert personal information for the first time
-            FirstName=str(input('Enter your first name: '))
-            LastName=str(input('Enter your last name: '))
-            ID=int(input('Enter your ID: '))
-            PhoneNumber=str(input('Enter your phone number: '))
-            EmailAddress=str(input('Enter your email address: '))
+            FirstName=int(input('Enter your first name: '))
+            LastName=(input('Enter your last name: '))
+            PhoneNumber=(input('Enter your phone number: '))
+            EmailAddress=(input('Enter your email address: '))
+            ID=(input('Enter your ID: '))
+            if type(FirstName) != str:
+                raise ValueError('insert wrong valu')
+
             dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
                        'EmailAddress': EmailAddress}
             # צריך לשים את הפרטים האיישים במסד נתונים
