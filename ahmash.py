@@ -1,7 +1,8 @@
 #(2.7)
-global request, request_manager
+global request, request_manager,waiters
 request = {}
 request_manager= {}
+waiters=[]
 def request_manpower():
     print("For getting more waiters to the relvant shift, press the relevant date dd/mm/yyyy")
     date_req=input("")
@@ -29,3 +30,14 @@ def request_from_manager():
 request_from_manager()
 print(request_manager)
 """
+def show_details_of_waiters():
+    print("The details of your waiters in your team is: ")
+    if(len(waiters)!=0):
+        for i in waiters:
+            print(i)
+    else:
+        print("There is no waiters in your team")
+"""
+show_details_of_waiters()
+"""
+
