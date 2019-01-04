@@ -7,5 +7,8 @@ def request_manpower():
     amount=input("Insert the amount of waiters that you need: ")
     request[date_req]=int(amount)
 
+"""
 request_manpower()
 print(request)
+"""
+
