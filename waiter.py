@@ -147,6 +147,15 @@ if (ReadDict(Username, Password)==True):
     feedback()
     print(feedback_waiter)
     """
+    ###### tzahy
+    #(1.6)
+    def Dismis_Work_Day():
+        global FirstName
+        global LastName
+        global ID
+        dismis_day = int(input('Input the day you want to cancel the work:(chose betwin 1-7): '))
+        dict_dismis_day={'FirstName':FirstName,'LastName':LastName,'ID':ID,'dismis_day':dismis_day}
+        #צריך להוסיף מאגר מידע עבור הבקשות של ביטול משמרת.
     #waiter menu
     choice=0
     while(choice!=8):
