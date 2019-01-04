@@ -103,7 +103,7 @@ if (ReadDict(Username, Password)==True):
         if UpdatePI == 1:
             EmailAddress = str(input('Update your email address: '))
         return {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'PhoneNumber':PhoneNumber, 'EmailAddress':EmailAddress}
-
+    #(2.8)
     def feedback():
         global feedback_ahmash,event
         print("Your events that you are participed is:",event)
@@ -117,9 +117,7 @@ if (ReadDict(Username, Password)==True):
             print("Wrong date input, return to main page")
 
 
-
-
-
+    feedback()
     #(2.7)
     global request, request_manager,waiters
     request = {}
@@ -130,10 +128,10 @@ if (ReadDict(Username, Password)==True):
         date_req=input("")
         amount=input("Insert the amount of waiters that you need: ")
         request[date_req]=int(amount)
-    """
+
     request_manpower()
     print(request)
-    """
+
 #matan
 #(2.11)
     def request_from_manager():
@@ -147,10 +145,10 @@ if (ReadDict(Username, Password)==True):
         request_manager['LastName']=LastName
         request_manager['ID']= ID
         request_manager['request']=request
-    """
+
     request_from_manager()
     print(request_manager)
-    """
+
 #(2.9)
 #matan
     def show_details_of_waiters():
@@ -160,9 +158,9 @@ if (ReadDict(Username, Password)==True):
                 print(i)
         else:
             print("There is no waiters in your team")
-    """
+
     show_details_of_waiters()
-    """
+
     #waiter menu
     choice=0
     while(choice!=8):
