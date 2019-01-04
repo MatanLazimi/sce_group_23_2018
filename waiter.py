@@ -154,9 +154,19 @@ if (ReadDict(Username, Password)==True):
         global FirstName
         global LastName
         global ID
-        dismis_day = int(input('Input the day you want to cancel the work:(chose betwin 1-7): '))
+        dismis_day = int(input('Input the day you want to cancel the work for the next week:(chose betwin 1-7): '))
         dict_dismis_day = {'FirstName':FirstName,'LastName':LastName,'ID':ID,'dismis_day':dismis_day}
         #צריך להוסיף מאגר מידע עבור הבקשות של ביטול משמרת.
+    #(1.7)
+    def swip_with_waiter():
+        global FirstName
+        global LastName
+        global ID
+        FirstName_SiwpWaiter= input('Enter the first name of the wiater how replace you: ')
+        LastName_SiwpWaiter= input('Enter the last name of the wiater how replace you: ')
+        ID_SiwpWaiter= int(input('Enter the name of the wiater how replace you: '))
+        swip_with = {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'FirstName_SiwpWaiter':FirstName_SiwpWaiter, 'LastName_SiwpWaiter':LastName_SiwpWaiter, 'ID_SiwpWaiter':ID_SiwpWaiter}
+        # צריך לשים את ה swip_with במאגר מידע.
     #(1.10)
     def General_Recuest():
         global FirstName
