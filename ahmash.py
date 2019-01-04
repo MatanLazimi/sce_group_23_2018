@@ -1,3 +1,3 @@
 #(2.7)
-global
+global request
 def request_manpower():
