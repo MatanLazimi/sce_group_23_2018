@@ -33,7 +33,8 @@ def ReadDict(username,password):
 if (ReadDict(Username, Password)==True):
     print("ok")
     global a
-    global event,feedback_waiter
+    global event,feedback_waiter,waiters
+    waiters=[]
     a=list()
     feedback_waiter={}
     event={"22/12/2018":"Festival Can"}
@@ -131,3 +132,22 @@ if (ReadDict(Username, Password)==True):
                 print(i)
         else:
             print("There is no waiters in your team")
+    #waiter menu
+    choice=0
+    while(choice!=8):
+        print('To see your personal information or update press (1)')#in this fuction need to another button to update the personal information
+        print('To insert new event press (2)')
+        print('Show details of waiters in the relevant team (3)')
+        print('To exit press (8)')
+
+        choice=int(input("Insert your choice here: "))
+
+        if(choice==1):
+            PersonalInformation()
+            x = input("Press any key to return the menu: ")
+        if(choice==2):
+            insert_event()
+            x = input("Press any key to return the menu: ")
+        if(choice==3):
+            show_details_of_waiters()
+            x = input("Press any key to return the menu: ")
