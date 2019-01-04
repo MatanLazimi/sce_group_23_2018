@@ -36,24 +36,10 @@ if (ReadDict(Username, Password)==True):
     global event,feedback_ahmash
     a=list()
     feedback_ahmash={}
-    event={"22/12/2018":"Festival Can"}
+    event={"22/12/2018": "Festival Can"}
     now=datetime.now()
     print(calendar.calendar(now.year))
     ###################functions##############
-    def ChangeWorkSchedule():
-        print('Enter the next details to send the application to change the shift:')
-        firstName = str(input('Enter your first name: '))
-        lastName = str(input('Enter your last name: '))
-        id = int(input('Enter your ID: '))
-        Appli = str(input('Enter your application and all the details on the shift: '))
-        ChangeWorkApplication = {'FirstName': firstName, 'LastName': lastName, 'ID': id, 'Appl': Appli}
-        return ChangeWorkApplication
-
-    #RequestChangeShift = ChangeWorkSchedule()
-    '''print(RequestChangeShift['FirstName'])
-    print(RequestChangeShift['LastName'])
-    print(RequestChangeShift['ID'])
-    print(RequestChangeShift['Appl'])'''
     global FirstName
     global LastName
     global ID
@@ -135,7 +121,7 @@ if (ReadDict(Username, Password)==True):
 
 
     #(2.7)
-    global request, request_manager
+    global request, request_manager,waiters
     request = {}
     request_manager= {}
     def request_manpower():
@@ -143,38 +129,66 @@ if (ReadDict(Username, Password)==True):
         date_req=input("")
         amount=input("Insert the amount of waiters that you need: ")
         request[date_req]=int(amount)
-
-"""
-request_manpower()
-print(request)
-"""
+    """
+    request_manpower()
+    print(request)
+    """
 #matan
 #(2.11)
-def request_from_manager():
-    print("For request from manager first insert your details-")
-    FirstName = str(input('Enter your first name: '))
-    LastName = str(input('Enter your last name: '))
-    ID = int(input('Enter your ID: '))
-    print("Insert a request for your manager: (when you finish press enter)")
-    request=input()
-    request_manager['FirstName']=FirstName
-    request_manager['LastName']=LastName
-    request_manager['ID']= ID
-    request_manager['request']=request
-"""
-request_from_manager()
-print(request_manager)
-"""
+    def request_from_manager():
+        print("For request from manager first insert your details-")
+        FirstName = str(input('Enter your first name: '))
+        LastName = str(input('Enter your last name: '))
+        ID = int(input('Enter your ID: '))
+        print("Insert a request for your manager: (when you finish press enter)")
+        request=input()
+        request_manager['FirstName']=FirstName
+        request_manager['LastName']=LastName
+        request_manager['ID']= ID
+        request_manager['request']=request
+    """
+    request_from_manager()
+    print(request_manager)
+    """
 #(2.9)
 #matan
-def show_details_of_waiters():
-    print("The details of your waiters in your team is: ")
-    if(len(waiters)!=0):
-        for i in waiters:
-            print(i)
-    else:
-        print("There is no waiters in your team")
-"""
-show_details_of_waiters()
-"""
+    def show_details_of_waiters():
+        print("The details of your waiters in your team is: ")
+        if(len(waiters)!=0):
+            for i in waiters:
+                print(i)
+        else:
+            print("There is no waiters in your team")
+    """
+    show_details_of_waiters()
+    """
+    #waiter menu
+    choice=0
+    while(choice!=8):
+        print('To see your personal information or update press (1)')#in this fuction need to another button to update the personal information
+        print('To send feedback on event press (2)')
+        print('To send application for bring more waiters for specific event press (3)')
+        print('To send a request to manager press (4)')
+        print('Show details of waiters in the relevant team (5)')
+        print('To exit press (8)')
 
+        choice=int(input("Insert your choice here: "))
+
+        if(choice==1):
+            PersonalInformation()
+            x = input("Press any key to return the menu: ")
+        if(choice==2):
+            feedback()
+            print("Sucess to put feedback",feedback_ahmash)
+            x = input("Press any key to return the menu: ")
+        if(choice==3):
+            request_manpower()
+            print("Sucess to request manpower",request)
+            x = input("Press any key to return the menu: ")
+        if(choice==4):
+            request_from_manager()
+            print("Sucess to send request to manager",request_manager)
+            x = input("Press any key to return the menu: ")
+        if(choice==5):
+            show_details_of_waiters()
+            x = input("Press any key to return the menu: ")
