@@ -22,3 +22,5 @@ def request_from_manager():
     print("Insert a request for your manager: (when you finish press enter)")
     request=input()
     request_manager = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, request}
+
+
