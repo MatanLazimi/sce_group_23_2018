@@ -161,7 +161,6 @@ if (ReadDict(Username, Password)==True):
         global ID
         dismis_day = int(input('Input the day you want to cancel the work for the next week:(chose betwin 1-7): '))
         dict_dismis_day = {'FirstName':FirstName,'LastName':LastName,'ID':ID,'dismis_day':dismis_day}
-        #צריך להוסיף מאגר מידע עבור הבקשות של ביטול משמרת.
     #(1.7)
     def swip_with_waiter():
         global FirstName
@@ -181,21 +180,21 @@ if (ReadDict(Username, Password)==True):
         General_Recuest = {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'Recuest':Recuest}
         # צריך לייצא את המילון למאגר מידע
     #waiter menu
+    def Print_my_events():
+        global event
+        print("Your events that you are participed is:", event)
     choice=0
     while(choice!=8):
-        print("Menu")
         print('To choose your days you want to work press (1)')#
         print('To see your pressed days that you want to work (2)')
         print('To see your personal information or update press (3)')#in this fuction need to another button to update the personal information
         print('To send feedback on event press (4)')
         print('To send application for change the work schedule press (5)')
+        print('To see the report shifts press (6)')
         print('To exit press (8)')
-        """print('to see the report shifts of the last month press 5')
-        print('to send application for change the work schedule press 6')
-        print('To see your work schedule press (3)')
-        print('to send general application to manager or responsible shift 7')"""
-        choice=int(input("Insert your choice here: "))
+        #print('to send general application to manager or responsible shift 7')
 
+        choice=int(input("Insert your choice here: "))
         if(choice==1):
             Insert_days_to_work()
             x = input("Press any key to return the menu: ")
@@ -214,3 +213,9 @@ if (ReadDict(Username, Password)==True):
             RequestChangeShift = ChangeWorkSchedule()
             print(RequestChangeShift['Appl'])
             x = input("Press any key to return the menu: ")
+        #צריך להוסיף מאגר מידע עבור הבקשות של ביטול משמרת.
+        if(choice==6):
+            Print_my_events()
+            x = input("Press any key to return the menu: ")
+
+        print("Menu")
