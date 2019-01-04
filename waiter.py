@@ -117,6 +117,7 @@ if (ReadDict(Username, Password)==True):
     """PersonalInformation() #check the fuction
     print('')
     PersonalInformation()"""
+    #(1.4 and 1.1)
     def Insert_days_to_work():
         global a
         if(a==list()):
@@ -154,8 +155,16 @@ if (ReadDict(Username, Password)==True):
         global LastName
         global ID
         dismis_day = int(input('Input the day you want to cancel the work:(chose betwin 1-7): '))
-        dict_dismis_day={'FirstName':FirstName,'LastName':LastName,'ID':ID,'dismis_day':dismis_day}
+        dict_dismis_day = {'FirstName':FirstName,'LastName':LastName,'ID':ID,'dismis_day':dismis_day}
         #צריך להוסיף מאגר מידע עבור הבקשות של ביטול משמרת.
+    #(1.10)
+    def General_Recuest():
+        global FirstName
+        global LastName
+        global ID
+        Recuest = input('insert your recuest: ')
+        General_Recuest = {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'Recuest':Recuest}
+        # צריך לייצא את המילון למאגר מידע
     #waiter menu
     choice=0
     while(choice!=8):
