@@ -123,3 +123,11 @@ if (ReadDict(Username, Password)==True):
         dict_event = {'name_commpany':name_commpany, 'event':date}
         #צריך להכניס את האירוע למסד נתונים של האירועים
 
+    #(3.7)
+    def show_details_of_waiters():
+        print("The details of your waiters in your team is: ")
+        if(len(waiters)!=0):
+            for i in waiters:
+                print(i)
+        else:
+            print("There is no waiters in your team")
