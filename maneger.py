@@ -34,7 +34,6 @@ if (ReadDict(Username, Password)==True):
     print("ok")
     global a
     global event,feedback_waiter
-
     a=list()
     feedback_waiter={}
     event={"22/12/2018":"Festival Can"}
@@ -125,8 +124,6 @@ if (ReadDict(Username, Password)==True):
         #צריך להכניס את האירוע למסד נתונים של האירועים
 
     #(3.7)
-    global waiters
-    waiters = []
     def show_details_of_waiters():
         print("The details of your waiters in your team is: ")
         if(len(waiters)!=0):
