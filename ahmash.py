@@ -165,3 +165,16 @@ def request_from_manager():
 request_from_manager()
 print(request_manager)
 """
+#(2.9)
+#matan
+def show_details_of_waiters():
+    print("The details of your waiters in your team is: ")
+    if(len(waiters)!=0):
+        for i in waiters:
+            print(i)
+    else:
+        print("There is no waiters in your team")
+"""
+show_details_of_waiters()
+"""
+
