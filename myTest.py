@@ -3,10 +3,10 @@ import waiter
 
 class MyTestCase(unittest.TestCase):
     def test_ReadDict(self):
-        self.assertEqual(manager('Matan_La', 1234), True)
+        self.assertEqual(waiter.ReadDict('Matan_La', 1234), True)
 
     def test_PersonalInformation(self):
-        #self.assertRaises(ValueError,waiter.PersonalInformation(),)
+        self.assertRaises(ValueError,waiter.PersonalInformation(),None)
         pass
 
 if __name__ == '__main__':

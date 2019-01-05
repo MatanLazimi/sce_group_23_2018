@@ -12,7 +12,7 @@ def ReadDict(username,password):
         if int(dictionary[username]) == int(password):
             print("Login Seccess")
             #########################################################################
-            type_user=1
+            type_user=3
             id=12345678
             flag={type_user: id}
             ##########################################################################
