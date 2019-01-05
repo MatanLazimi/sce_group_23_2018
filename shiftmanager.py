@@ -1,4 +1,4 @@
-import calendar,dbworker, auth
+import calendar,dbworker, auth, waiter
 from prettytable import PrettyTable
 
 from datetime import datetime
@@ -152,7 +152,7 @@ def menu():
     choice=int(input("Insert your choice here: "))
 
     if(choice==1):
-        PersonalInformation()
+        waiter.ShowPersonalDetails()
         x = input("Press any key to return the menu: ")
     if(choice==2):
         feedback()
