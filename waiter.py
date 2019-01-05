@@ -76,8 +76,7 @@ if (ReadDict(Username, Password)==True):
             EmailAddress=(input('Enter your email address: '))
             ID=(input('Enter your ID: '))
             if type(FirstName) != str:
-                raise ValueError('insert wrong valu')
-
+                return False
             dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
                        'EmailAddress': EmailAddress}
             # צריך לשים את הפרטים האיישים במסד נתונים
