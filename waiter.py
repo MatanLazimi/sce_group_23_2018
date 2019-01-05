@@ -70,13 +70,14 @@ if (ReadDict(Username, Password)==True):
         global EmailAddress
         global PhoneNumber
         if FirstName == None:#insert personal information for the first time
-            FirstName=int(input('Enter your first name: '))
+            FirstName=(input('Enter your first name: '))
             LastName=(input('Enter your last name: '))
             PhoneNumber=(input('Enter your phone number: '))
             EmailAddress=(input('Enter your email address: '))
             ID=(input('Enter your ID: '))
             if type(FirstName) != str:
-                raise ValueError('insert wrong valu')
+                raise ValueError
+
 
             dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
                        'EmailAddress': EmailAddress}
