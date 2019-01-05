@@ -20,29 +20,72 @@ def DoSqlInsert(sqlcommand, params):
         return cursor.rowcount
 
 
-def GetUserByCredentials(sid, password):
+def GetUserByCredentials(username, password):
     cursor = db.cursor()
-    sqlcommand = "SELECT * FROM Users WHERE SID = %s AND UserPassword = %s;"
-    params = (sid, password)
+    sqlcommand = "SELECT * FROM Users WHERE Username = %s AND Password = %s;"
+    params = (username, password)
     cursor.execute(sqlcommand, params)
 
     return cursor.fetchall()
 
 
-def GetUserById(userid):
+def GetWorkerById(id):
     cursor = db.cursor()
-    sqlcommand = "SELECT * FROM Users WHERE UserID = %s;"
-    params = (userid)
+    sqlcommand = "SELECT * FROM Workers WHERE ID = %s;"
+    params = (id, )
     cursor.execute(sqlcommand, params)
 
     return cursor.fetchall()
 
 
-def InsertUser(sid, firstname, lastname, phone, usertype, usermanager, userpassword):
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+'''
+
+def InsertUser(id, firstname, lastname, phone, usertype, usermanager, userpassword):
     sqlcommand = """INSERT INTO Users
-    (SID, FirstName, LastName, Phone, UserType, UserManager, UserPassword)
+    (ID, FirstName, LastName, Phone, UserType, UserManager, UserPassword)
      VALUES(%s ,%s, %s, %s, %s, %s, %s );"""
-    params = (sid, firstname, lastname, phone, usertype, usermanager, userpassword)
+    params = (id, firstname, lastname, phone, usertype, usermanager, userpassword)
 
     return DoSqlInsert(sqlcommand, params)
 
@@ -55,23 +98,23 @@ def InsertEvent(starttime, endtime, place, Description, numofwaiters):
     return DoSqlInsert(sqlcommand, params)
 
 
-def InsertMemo(eventid, userid, memo):
-    sqlcommand = "INSERT INTO Memos(EventID, UserID, MemoText) VALUES(%s ,%s, %s);"
-    params = (eventid, userid, memo)
+def InsertMemo(date, userid, memo):
+    sqlcommand = "INSERT INTO Memos(EventDate, UserID, MemoText) VALUES(%s ,%s, %s);"
+    params = (date, userid, memo)
 
     return DoSqlInsert(sqlcommand, params)
 
 
-def InsertShiftAssignment(eventid, userid):
-    sqlcommand = "INSERT INTO ShiftAssignments(EventID, UserID) VALUES(%s ,%s);"
-    params = (eventid, userid)
+def InsertShiftAssignment(date, userid):
+    sqlcommand = "INSERT INTO ShiftAssignments(EventDate, UserID) VALUES(%s ,%s);"
+    params = (date, userid)
 
     return DoSqlInsert(sqlcommand, params)
 
 
-def InsertShiftBlock(starttime, endtime, description):
+def InsertShiftBlock(date, description):
     sqlcommand = "INSERT INTO ShiftBlocking(StartTime, EndTime, Description) VALUES(%s ,%s, %s);"
-    params = (starttime, endtime, description)
+    params = (date, description)
 
     return DoSqlInsert(sqlcommand, params)
 
@@ -105,44 +148,22 @@ def GetEvent(eventid):
     return cursor.fetchone()
 
 
+
+def Update_Worker(userid, firstname, lastname, phone, usertype, usermanager):
+        cursor = db.cursor()
+        sqlcommand = """UPDATE Users SET firstname = %s AND lastname = %s AND Phone = %s AND usertype = %s   WHERE ID = %s"""
+        params = ("Valley 345", "Canyon 123")
+        cursor.execute(firstname, lastname, phone, usertype, usermanager, userid)
+
+        db.commit()
+
+
+
 def Delete_Table(table):
     cursor = db.cursor()
     sqlcommand = "DELETE FROM %s"
     params = (table)
     cursor.execute(sqlcommand, params)
     db.commit()
-
-
-
-def test():
-    # print(InsertUser("123456789", "firstname", "lastname", None, 1, None, "1234567"))
-    GetBlockes("2019/12/26 12:00:00", "2019/12/29 12:00:00")
-
-
-""" 
-    if typeId == 1:
-        print("he's an admin!")
-    elif typeId == 2:
-        print("he's a manager!")
-    elif typeId == 3:
-        print("he's a shift manager!")
-    elif typeId == 4:
-        print("he's a waiter!!")
-    else:
-        print("login faild!") """
-
-
-
-
-
-
-'''def Update_Worker(userid):
-        cursor = db.cursor()
-        sqlcommand = """UPDATE Users SET address = %s WHERE address = %s"""
-        params = ("Valley 345", "Canyon 123")
-        cursor.execute( ,userid)
-
-        db.commit()'''
-    # (SID, FirstName, LastName, Phone, UserType, UserManager, UserPassword)
-
-
+    
+'''

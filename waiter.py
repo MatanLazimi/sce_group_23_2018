@@ -1,5 +1,8 @@
 import calendar
 from datetime import datetime
+import dbworker
+
+
 def run():
     ###################Start_Login#######################
     print("ok")
@@ -37,43 +40,16 @@ def run():
     EmailAddress=None
     PhoneNumber=None
 
-    def PersonalInformation():
-        global FirstName
-        global LastName
-        global ID
-        global EmailAddress
-        global PhoneNumber
-        if FirstName == None:#insert personal information for the first time
-            FirstName=(input('Enter your first name: '))
-            LastName=(input('Enter your last name: '))
-            PhoneNumber=(input('Enter your phone number: '))
-            EmailAddress=(input('Enter your email address: '))
-            ID=(input('Enter your ID: '))
-            if type(FirstName) != str:
-                raise ValueError
-
-
-            dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
-                       'EmailAddress': EmailAddress}
-            # צריך לשים את הפרטים האיישים במסד נתונים
-        else:#see all your personal information
-            print('Your first name is: ',FirstName)
-            print('Your last name is: ',LastName)
-            print('Your ID is: ',ID)
-            print('Your phone number is: ',PhoneNumber)
-            print('Your email address is: ',EmailAddress)
-            print('')
-            UpdatePI=int(input('if you want to change your personal information press 1 else press 0: '))
-            if UpdatePI==1:
-                dict_IP = ChangePI()
-                # צריך לעדכן את מסד הנתונים של פרטיים האישיים של העובדים
-        print('')
-        print('The personal information you registered is: ')
-        print('Your first name is: ', FirstName)
-        print('Your last name is: ', LastName)
-        print('Your ID is: ', ID)
-        print('Your phone number is: ', PhoneNumber)
-        print('Your email address is: ', EmailAddress)
+    # def PersonalInformation(id):
+    #
+    #     worker = dbworker.GetWorkerById(id)[0]
+    #
+    #     print('')
+    #     print('The personal information you registered is: \n')
+    #     print('Your first name is: ', worker[1])
+    #     print('Your last name is: ', worker[2])
+    #     print('Your ID is: ', worker[0])
+    #     print('Your phone number is: ', worker[3])
 
     def ChangePI():#update the personal information
         global FirstName
@@ -194,3 +170,16 @@ def run():
             x = input("Press any key to return the menu: ")
 
         print("Menu")
+
+
+
+def PersonalInformation(id):
+
+    worker = dbworker.GetWorkerById(id)[0]
+
+    print('')
+    print('The personal information you registered is: \n')
+    print('Your first name is: ', worker[1])
+    print('Your last name is: ', worker[2])
+    print('Your ID is: ', worker[0])
+    print('Your phone number is: ', worker[3])
