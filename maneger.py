@@ -13,12 +13,6 @@ def run():
     now=datetime.now()
     print(calendar.calendar(now.year))
     ###################functions##############
-
-    #RequestChangeShift = ChangeWorkSchedule()
-    '''print(RequestChangeShift['FirstName'])
-    print(RequestChangeShift['LastName'])
-    print(RequestChangeShift['ID'])
-    print(RequestChangeShift['Appl'])'''
     global FirstName
     global LastName
     global ID
