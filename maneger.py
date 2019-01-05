@@ -1,5 +1,6 @@
 import calendar
-from datetime import datetime, date
+from datetime import datetime
+import dbworker
 
 
 ###################Start_Login#######################
@@ -115,13 +116,12 @@ if (ReadDict(Username, Password)==True):
 
     #(3.1)
     def insert_event():
-        print('Enter the date off the event:')
-        y = int(input('Enter full year'))
-        m = int(input('Enter full month'))
-        d = int(input('Enter full day'))
-        event = date(y,m,d)
-        name_commpany = input('Enter the name off the commpany that have the event:')
-        dict_event = {'name_commpany':name_commpany, 'event':date}
+        date = str(input('Enter the date off the event:(dd/mm/yy): '))
+        startTime = str(input('Enter the start time of this event:(hh:mm) '))
+        place = str(input('were you do the event: '))
+        Descrip = input('Describ the event: ')
+        number_of_waitres = input('Enter the numbers off waiters to this event: ')
+        dbworker.InsertEvent(date,startTime,place,Descrip,number_of_waitres)
         #צריך להכניס את האירוע למסד נתונים של האירועים
 
     #(3.7)
