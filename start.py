@@ -7,14 +7,13 @@ def ReadDict(username,password):
         for line in file:
             s = line.strip().split(", ")
             dictionary[s[0]] = int(s[1])
-
     if username in dictionary:
         if int(dictionary[username]) == int(password):
             print("Login Seccess")
-            #########################################################################
             type_user=3
             id=12345678
             flag={type_user: id}
+            return flag
             ##########################################################################
         else:
             print("Wrong Password, try again")
@@ -22,8 +21,6 @@ def ReadDict(username,password):
     else:
         print("Wrong Username, Plaese Check your Username Or Password")
         return False
-    return flag
-
 
 
 print("Welcome To ShiftOrganizer")
@@ -38,10 +35,10 @@ Password = input("Enter Password: \n")
 temp_login=ReadDict(Username, Password)
 if(temp_login != False):
     if(1 in temp_login):
-        waiter
+        waiter.run()
     elif(2 in temp_login):
-        ahmash
+        ahmash.run()
     elif(3 in temp_login):
-        maneger
+        maneger.run()
 else:
     print("ShutDown the program Username and Password incorrect")
