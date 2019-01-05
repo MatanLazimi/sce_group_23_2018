@@ -126,10 +126,8 @@ def run():
     """
     feedback()
     feedback()
-    print(feedback_waiter)
-    """
-    ###### tzahy
-    #(1.6)
+    print(feedback_waiter) 
+    (1.6)"""
     def Dismis_Work_Day():
         global FirstName
         global LastName

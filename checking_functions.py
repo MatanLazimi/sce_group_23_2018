@@ -1,11 +1,7 @@
 def ReadDict(username,password):
     # Dict that will contain keys and values
     flag=False
-    dictionary = {}
-    with open("try.txt", "rt") as file:
-        for line in file:
-            s = line.strip().split(", ")
-            dictionary[s[0]] = int(s[1])
+    dictionary = {"Matan_La":"1234"}
     if username in dictionary:
         if int(dictionary[username]) == int(password):
             print("Login Seccess")
@@ -131,3 +127,59 @@ def Dismis_Work_Day(day):
         return day
     else:
         raise ValueError
+def request_manpower(amount):
+    print("For getting more waiters to the relvant shift, press the relevant date dd/mm/yyyy")
+    date_req="22/11/2019"
+    print("22/11/2019")
+    print("Insert the amount of waiters that you need: ")
+    print(amount)
+    if(amount>=0):
+        request={date_req:amount}
+        return request
+    else:
+        raise ValueError
+def request_from_manager(request):
+    print("For request from manager first insert your details-")
+    FirstName = "Moshe"
+    LastName = "Perez"
+    ID = 123456789
+    print("Insert a request for your manager: (when you finish press enter)")
+    if(type(request)!=str):
+        raise ValueError
+    else:
+        return request+ "saved!"
+
+"""
+request_from_manager()
+print(request_manager)
+"""
+def show_details_of_waiters(waiters):
+    print("The details of your waiters in your team is: ")
+    if (len(waiters) != 0):
+        for i in waiters:
+            print(i)
+        return True
+    else:
+        print("There is no waiters in your team")
+        return False
+def insert_event(number_of_waitres):
+    print('Enter the date off the event:(dd/mm/yy): ')
+    print('22/02/19')
+    date ='22/02/19'
+    print('Enter the start time of this event:(hh:mm) ')
+    print('08:00')
+    startTime ='08:00'
+    print('were you do the event: ')
+    print("Tel-Aviv")
+    place = "Tel-Aviv"
+    print("Describ the event: ")
+    Descrip = "Excellent event"
+    print(Descrip)
+    print('Enter the numbers off waiters to this event: ')
+    print(number_of_waitres)
+    if(type(number_of_waitres)!=int):
+        return False
+    elif(number_of_waitres>=100):
+        raise ValueError
+    else:
+        return True
