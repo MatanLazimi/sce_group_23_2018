@@ -147,12 +147,12 @@ def run():
         swip_with = {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'FirstName_SiwpWaiter':FirstName_SiwpWaiter, 'LastName_SiwpWaiter':LastName_SiwpWaiter, 'ID_SiwpWaiter':ID_SiwpWaiter}
         # צריך לשים את ה swip_with במאגר מידע.
     #(1.10)
-    def General_Recuest():
+    def General_Request():
         global FirstName
         global LastName
         global ID
-        Recuest = input('insert your request: ')
-        General_Recuest = {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'Recuest':Recuest}
+        Request = input('insert your request: ')
+        General_Recuest = {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'Request':Request}
         # צריך לייצא את המילון למאגר מידע
     #waiter menu
     def Print_my_events():
