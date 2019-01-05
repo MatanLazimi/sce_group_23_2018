@@ -132,3 +132,6 @@ def menu():
     if(choice==4):
         show_events()
         x = input("Press any key to return the menu: ")
+    if(choice==5):
+        ChangePI()
+        x = input("Press any key to return the menu: ")
