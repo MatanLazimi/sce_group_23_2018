@@ -3,10 +3,6 @@ from datetime import datetime
 
 
 ###################Start_Login#######################
-flag = False
-Username = input("Enter your User Name: \n")
-Password = input("Enter Password: \n")
-
 def ReadDict(username,password):
     # Dict that will contain keys and values
     dictionary = {}
@@ -14,8 +10,6 @@ def ReadDict(username,password):
         for line in file:
             s = line.strip().split(", ")
             dictionary[s[0]] = int(s[1])
-
-
     if username in dictionary:
         if int(dictionary[username]) == int(password):
             print("Login Seccess")
@@ -26,9 +20,12 @@ def ReadDict(username,password):
     else:
         print("Wrong Username, Plaese Check your Username Or Password")
         return False
-
     return flag
+flag=True
 
+flag = False
+Username = input("Enter your User Name: \n")
+Password = input("Enter Password: \n")
 ###################End_Login#######################
 if (ReadDict(Username, Password)==True):
     print("ok")
