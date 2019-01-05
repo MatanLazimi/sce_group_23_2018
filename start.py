@@ -1,7 +1,13 @@
-import waiter,ahmash,maneger
+import waiter,ahmash,maneger,dbworker
 
+print("Welcome To ShiftOrganizer")
+print("enjoy!")
+print()
+print()
+print('Login')
 def ReadDict(username,password):
     # Dict that will contain keys and values
+    flag=False
     dictionary = {}
     with open("try.txt", "rt") as file:
         for line in file:
@@ -21,24 +27,23 @@ def ReadDict(username,password):
     else:
         print("Wrong Username, Plaese Check your Username Or Password")
         return False
+    return flag
 
 
-print("Welcome To ShiftOrganizer")
-print("enjoy!")
-print()
-print()
-print('Login')
+
 ###################Start_Login#######################
-flag = False
 Username = input("Enter your User Name: \n")
 Password = input("Enter Password: \n")
-temp_login=ReadDict(Username, Password)
+temp_login= ReadDict(Username, Password)
 if(temp_login != False):
     if(1 in temp_login):
+        print("Run profile of waiter {}".format(temp_login[1]))
         waiter.run()
     elif(2 in temp_login):
+        print("Run profile of Responsible shift {}".format(temp_login[2]))
         ahmash.run()
     elif(3 in temp_login):
+        print("Run profile of Manager {}".format(temp_login[3]))
         maneger.run()
 else:
     print("ShutDown the program Username and Password incorrect")
