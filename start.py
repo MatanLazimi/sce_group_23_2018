@@ -35,3 +35,13 @@ print('Login')
 flag = False
 Username = input("Enter your User Name: \n")
 Password = input("Enter Password: \n")
+temp_login=ReadDict(Username, Password)
+if(temp_login != False):
+    if(1 in temp_login):
+        waiter
+    elif(2 in temp_login):
+        ahmash
+    elif(3 in temp_login):
+        maneger
+else:
+    print("ShutDown the program Username and Password incorrect")
