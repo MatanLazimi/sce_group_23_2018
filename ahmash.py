@@ -1,36 +1,7 @@
-import calendar
+import calendar,dbworker
 from datetime import datetime
-
-
-###################Start_Login#######################
-flag = False
-Username = input("Enter your User Name: \n")
-Password = input("Enter Password: \n")
-
-def ReadDict(username,password):
-    # Dict that will contain keys and values
-    dictionary = {}
-    with open("try.txt", "rt") as file:
-        for line in file:
-            s = line.strip().split(", ")
-            dictionary[s[0]] = int(s[1])
-
-
-    if username in dictionary:
-        if int(dictionary[username]) == int(password):
-            print("Login Seccess")
-            flag=True
-        else:
-            print("Wrong Password, try again")
-            return False
-    else:
-        print("Wrong Username, Plaese Check your Username Or Password")
-        return False
-
-    return flag
-
-###################End_Login#######################
-if (ReadDict(Username, Password)==True):
+def run():
+    ###################Start_Login#######################
     print("ok")
     global a
     global event,feedback_ahmash
@@ -124,7 +95,7 @@ if (ReadDict(Username, Password)==True):
     global request, request_manager,waiters
     request = {}
     request_manager= {}
-    waiters=[]
+    waiters=['Matan Lazimi, 123456789','Moshe Tagaya, 123123123']
     def request_manpower():
         print("For getting more waiters to the relvant shift, press the relevant date dd/mm/yyyy")
         date_req=input("")
@@ -134,8 +105,8 @@ if (ReadDict(Username, Password)==True):
     request_manpower()
     print(request)
     """
-#matan
-#(2.11)
+    #matan
+    #(2.11)
     def request_from_manager():
         print("For request from manager first insert your details-")
         FirstName = str(input('Enter your first name: '))
@@ -151,8 +122,8 @@ if (ReadDict(Username, Password)==True):
     request_from_manager()
     print(request_manager)
     """
-#(2.9)
-#matan
+    #(2.9)
+    #matan
     def show_details_of_waiters():
         print("The details of your waiters in your team is: ")
         if(len(waiters)!=0):

@@ -1,33 +1,7 @@
 import calendar
 from datetime import datetime
-
-
-###################Start_Login#######################
-def ReadDict(username,password):
-    # Dict that will contain keys and values
-    dictionary = {}
-    with open("try.txt", "rt") as file:
-        for line in file:
-            s = line.strip().split(", ")
-            dictionary[s[0]] = int(s[1])
-    if username in dictionary:
-        if int(dictionary[username]) == int(password):
-            print("Login Seccess")
-            flag=True
-        else:
-            print("Wrong Password, try again")
-            return False
-    else:
-        print("Wrong Username, Plaese Check your Username Or Password")
-        return False
-    return flag
-flag=True
-
-flag = False
-Username = input("Enter your User Name: \n")
-Password = input("Enter Password: \n")
-###################End_Login#######################
-if (ReadDict(Username, Password)==True):
+def run():
+    ###################Start_Login#######################
     print("ok")
     global a
     global event,feedback_waiter
@@ -70,13 +44,14 @@ if (ReadDict(Username, Password)==True):
         global EmailAddress
         global PhoneNumber
         if FirstName == None:#insert personal information for the first time
-            FirstName=int(input('Enter your first name: '))
+            FirstName=(input('Enter your first name: '))
             LastName=(input('Enter your last name: '))
             PhoneNumber=(input('Enter your phone number: '))
             EmailAddress=(input('Enter your email address: '))
             ID=(input('Enter your ID: '))
             if type(FirstName) != str:
-                raise ValueError('insert wrong valu')
+                raise ValueError
+
 
             dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
                        'EmailAddress': EmailAddress}

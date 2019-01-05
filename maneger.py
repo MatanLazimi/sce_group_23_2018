@@ -1,36 +1,8 @@
 import calendar
-from datetime import datetime, date
-
-
-###################Start_Login#######################
-flag = False
-Username = input("Enter your User Name: \n")
-Password = input("Enter Password: \n")
-
-def ReadDict(username,password):
-    # Dict that will contain keys and values
-    dictionary = {}
-    with open("try.txt", "rt") as file:
-        for line in file:
-            s = line.strip().split(", ")
-            dictionary[s[0]] = int(s[1])
-
-
-    if username in dictionary:
-        if int(dictionary[username]) == int(password):
-            print("Login Seccess")
-            flag=True
-        else:
-            print("Wrong Password, try again")
-            return False
-    else:
-        print("Wrong Username, Plaese Check your Username Or Password")
-        return False
-
-    return flag
-
-###################End_Login#######################
-if (ReadDict(Username, Password)==True):
+from datetime import datetime
+import dbworker
+def run():
+    ###################Start_Manager#######################
     print("ok")
     global a
     global event,feedback_waiter,waiters
@@ -41,12 +13,6 @@ if (ReadDict(Username, Password)==True):
     now=datetime.now()
     print(calendar.calendar(now.year))
     ###################functions##############
-
-    #RequestChangeShift = ChangeWorkSchedule()
-    '''print(RequestChangeShift['FirstName'])
-    print(RequestChangeShift['LastName'])
-    print(RequestChangeShift['ID'])
-    print(RequestChangeShift['Appl'])'''
     global FirstName
     global LastName
     global ID
@@ -115,13 +81,12 @@ if (ReadDict(Username, Password)==True):
 
     #(3.1)
     def insert_event():
-        print('Enter the date off the event:')
-        y = int(input('Enter full year'))
-        m = int(input('Enter full month'))
-        d = int(input('Enter full day'))
-        event = date(y,m,d)
-        name_commpany = input('Enter the name off the commpany that have the event:')
-        dict_event = {'name_commpany':name_commpany, 'event':date}
+        date = str(input('Enter the date off the event:(dd/mm/yy): '))
+        startTime = str(input('Enter the start time of this event:(hh:mm) '))
+        place = str(input('were you do the event: '))
+        Descrip = input('Describ the event: ')
+        number_of_waitres = input('Enter the numbers off waiters to this event: ')
+        dbworker.InsertEvent(date,startTime,place,Descrip,number_of_waitres)
         #צריך להכניס את האירוע למסד נתונים של האירועים
 
     #(3.7)
