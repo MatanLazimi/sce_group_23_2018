@@ -11,13 +11,8 @@ db = mysql.connector.connect(
 # Return values: -1 = failiure, anything else = rows inserted
 def DoSqlInsert(sqlcommand, params):
     cursor = db.cursor()
-    try:
-        cursor.execute(sqlcommand, params)
-        db.commit()
-    except:
-        return -1
-    finally:
-        return cursor.rowcount
+    cursor.execute(sqlcommand, params)
+    db.commit()
 
 
 def GetUserByCredentials(username, password):
@@ -32,51 +27,46 @@ def GetUserByCredentials(username, password):
 def GetWorkerById(id):
     cursor = db.cursor()
     sqlcommand = "SELECT * FROM Workers WHERE ID = %s;"
-    params = (id, )
+    params = (id,)
     cursor.execute(sqlcommand, params)
 
     return cursor.fetchall()
 
 
+def GetWorkersByManagerId(id):
+    cursor = db.cursor()
+    sqlcommand = "SELECT ID, FirstName, LastName, Phone FROM Workers WHERE WorkerManager = %s;"
+    params = (id,)
+    cursor.execute(sqlcommand, params)
+
+    return cursor.fetchall()
 
 
+def InsertShiftBlock(params):
+    sqlcommand = "INSERT INTO ShiftBlocking(BlockDate, WorkerID) VALUES(%s ,%s);"
+    cursor = db.cursor()
+    if (len(params) == 1):
+        cursor.execute(sqlcommand, params[0])
+    else:
+        cursor.executemany(sqlcommand, params)
+    db.commit()
 
 
+def InsertEvent(date, place, Description, numofwaiters):
+    sqlcommand = """INSERT INTO Events(EventDate, Place, Description, WaitersAmount)
+     VALUES(%s ,%s, %s, %s);"""
+    params = (date, place, Description, numofwaiters)
+
+    return DoSqlInsert(sqlcommand, params)
 
 
+def GetEvents(datefrom):
+    cursor = db.cursor()
+    sqlcommand = "SELECT * FROM Events WHERE EventDate >= %s;"
+    params = (datefrom,)
+    cursor.execute(sqlcommand, params)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return cursor.fetchall()
 
 
 '''
@@ -86,14 +76,6 @@ def InsertUser(id, firstname, lastname, phone, usertype, usermanager, userpasswo
     (ID, FirstName, LastName, Phone, UserType, UserManager, UserPassword)
      VALUES(%s ,%s, %s, %s, %s, %s, %s );"""
     params = (id, firstname, lastname, phone, usertype, usermanager, userpassword)
-
-    return DoSqlInsert(sqlcommand, params)
-
-
-def InsertEvent(starttime, endtime, place, Description, numofwaiters):
-    sqlcommand = """INSERT INTO Events(StartTime, EndTime, Place, Description, WaitersAmount)
-     VALUES(%s ,%s, %s, %s, %s);"""
-    params = (starttime, endtime, place, Description, numofwaiters)
 
     return DoSqlInsert(sqlcommand, params)
 
@@ -165,5 +147,5 @@ def Delete_Table(table):
     params = (table)
     cursor.execute(sqlcommand, params)
     db.commit()
-    
+
 '''

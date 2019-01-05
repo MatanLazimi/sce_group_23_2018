@@ -1,7 +1,8 @@
 import calendar
 from datetime import datetime
-import dbworker
-def run():
+import dbworker, auth, waiter, shiftmanager
+from prettytable import PrettyTable
+def menu():
     ###################Start_Manager#######################
     print("ok")
     global a
@@ -81,38 +82,53 @@ def run():
 
     #(3.1)
     def insert_event():
-        date = str(input('Enter the date off the event:(dd/mm/yy): '))
-        startTime = str(input('Enter the start time of this event:(hh:mm) '))
+        date = str(input('Enter the date off the event:(YYYY/MM/DD): '))
         place = str(input('were you do the event: '))
         Descrip = input('Describ the event: ')
-        number_of_waitres = input('Enter the numbers off waiters to this event: ')
-        dbworker.InsertEvent(date,startTime,place,Descrip,number_of_waitres)
+        number_of_waitres = int(input('Enter the numbers off waiters to this event: '))
+        dbworker.InsertEvent(date, place,Descrip,number_of_waitres)
         #צריך להכניס את האירוע למסד נתונים של האירועים
 
+    def show_events():
+        print("The details of your waiters in your team is: ")
+        waiters = dbworker.GetEvents(datetime.now())
+        t = PrettyTable(['EventDate', 'Place', 'Description', 'WaitersAmount'])
+        if(len(waiters)!=0):
+            for i in waiters:
+                t.add_row(i)
+            print(t)
+        else:
+            print("There is no waiters in your team")
     #(3.7)
     def show_details_of_waiters():
         print("The details of your waiters in your team is: ")
+        waiters = dbworker.GetWorkersByManagerId(auth.user["id"])
+        t = PrettyTable(['Id', 'First Name', 'Last Name', 'Phone'])
         if(len(waiters)!=0):
             for i in waiters:
-                print(i)
+                t.add_row(i)
+            print(t)
         else:
             print("There is no waiters in your team")
     #waiter menu
     choice=0
-    while(choice!=8):
-        print('To see your personal information or update press (1)')#in this fuction need to another button to update the personal information
-        print('To insert new event press (2)')
-        print('Show details of waiters in the relevant team (3)')
-        print('To exit press (8)')
+    print('To see your personal information or update press (1)')#in this fuction need to another button to update the personal information
+    print('To insert new event press (2)')
+    print('Show details of waiters in the relevant team (3)')
+    print('Show details of waiters in the relevant team (4)')
+    print('To exit press (8)')
 
-        choice=int(input("Insert your choice here: "))
+    choice=int(input("Insert your choice here: "))
 
-        if(choice==1):
-            PersonalInformation()
-            x = input("Press any key to return the menu: ")
-        if(choice==2):
-            insert_event()
-            x = input("Press any key to return the menu: ")
-        if(choice==3):
-            show_details_of_waiters()
-            x = input("Press any key to return the menu: ")
+    if(choice==1):
+        waiter.ShowPersonalDetails()
+        x = input("Press any key to return the menu: ")
+    if(choice==2):
+        insert_event()
+        x = input("Press any key to return the menu: ")
+    if(choice==3):
+        show_details_of_waiters()
+        x = input("Press any key to return the menu: ")
+    if(choice==4):
+        show_events()
+        x = input("Press any key to return the menu: ")
