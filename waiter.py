@@ -177,7 +177,7 @@ if (ReadDict(Username, Password)==True):
         global FirstName
         global LastName
         global ID
-        Recuest = input('insert your recuest: ')
+        Recuest = input('insert your request: ')
         General_Recuest = {'FirstName':FirstName, 'LastName':LastName, 'ID':ID, 'Recuest':Recuest}
         # צריך לייצא את המילון למאגר מידע
     #waiter menu
