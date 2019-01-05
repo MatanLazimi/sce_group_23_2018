@@ -115,7 +115,7 @@ def menu():
     print('To see your personal information or update press (1)')#in this fuction need to another button to update the personal information
     print('To insert new event press (2)')
     print('Show details of waiters in the relevant team (3)')
-    print('Show details of waiters in the relevant team (4)')
+    print('Show details of events (4)')
     print('To exit press (8)')
 
     choice=int(input("Insert your choice here: "))
