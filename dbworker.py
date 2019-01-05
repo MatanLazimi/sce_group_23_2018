@@ -136,11 +136,13 @@ def test():
 
 
 
-'''def Update_Worker():
+'''def Update_Worker(userid):
         cursor = db.cursor()
         sqlcommand = """UPDATE Users SET address = %s WHERE address = %s"""
         params = ("Valley 345", "Canyon 123")
-        cursor.execute(sqlcommand, params)
+        cursor.execute( ,userid)
 
         db.commit()'''
     # (SID, FirstName, LastName, Phone, UserType, UserManager, UserPassword)
+
+
