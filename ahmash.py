@@ -124,7 +124,7 @@ if (ReadDict(Username, Password)==True):
     global request, request_manager,waiters
     request = {}
     request_manager= {}
-    waiters=[]
+    waiters=['Matan Lazimi, 123456789','Moshe Tagaya, 123123123']
     def request_manpower():
         print("For getting more waiters to the relvant shift, press the relevant date dd/mm/yyyy")
         date_req=input("")
