@@ -1,4 +1,4 @@
-import calendar,dbworker, auth, waiter
+import calendar,dbworker, auth, waiter, maneger
 from prettytable import PrettyTable
 
 from datetime import datetime
@@ -147,7 +147,7 @@ def menu():
     print('To send application for bring more waiters for specific event press (3)')
     print('To send a request to manager press (4)')
     print('Show details of waiters in the relevant team (5)')
-    print('To exit press (8)')
+    print('To logout press (6)')
 
     choice=int(input("Insert your choice here: "))
 
@@ -169,3 +169,5 @@ def menu():
     if(choice==5):
         show_details_of_waiters()
         x = input("Press any key to return the menu: ")
+    if(choice==6):
+        auth.logout()

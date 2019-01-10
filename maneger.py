@@ -40,7 +40,6 @@ def menu():
             EmailAddress=str(input('Enter your email address: '))
             dict_IP = {'FirstName': FirstName, 'LastName': LastName, 'ID': ID, 'PhoneNumber': PhoneNumber,
                            'EmailAddress': EmailAddress}
-            # צריך לשים את הפרטים האיישים במסד נתונים
 
         else:#see all your personal information
             print('Your first name is: ',FirstName)
@@ -52,7 +51,6 @@ def menu():
             UpdatePI=int(input('if you want to change your personal information press 1 else press 0: '))
             if UpdatePI==1:
                 dict_IP = ChangePI()
-                # צריך לעדכן את מסד הנתונים של פרטיים האישיים של העובדים
         print('')
         print('The personal information you registered is: ')
         print('Your first name is: ', FirstName)
@@ -87,7 +85,6 @@ def menu():
         Descrip = input('Describ the event: ')
         number_of_waitres = int(input('Enter the numbers off waiters to this event: '))
         dbworker.InsertEvent(date, place,Descrip,number_of_waitres)
-        #צריך להכניס את האירוע למסד נתונים של האירועים
 
     def show_events():
         print("The details of your waiters in your team is: ")
@@ -116,7 +113,7 @@ def menu():
     print('To insert new event press (2)')
     print('Show details of waiters in the relevant team (3)')
     print('Show details of events (4)')
-    print('To exit press (8)')
+    print('To logout press (6)')
 
     choice=int(input("Insert your choice here: "))
 
@@ -135,3 +132,5 @@ def menu():
     if(choice==5):
         ChangePI()
         x = input("Press any key to return the menu: ")
+    elif (choice == 6):
+        auth.logout()
